@@ -518,13 +518,12 @@ README should explain:
 
 # Demo Credentials
 
-Example accounts:
+| User Type  | Email             | Password    |
+| ---------- | ----------------- | ----------- |
+| Org Owner  | owner@demo.com    | `Demo1234!` |
+| Org Member | member@demo.com   | `Demo1234!` |
+| Client     | client@demo.com   | `Demo1234!` |
 
-Owner\
-owner@demo.com
-
-Client\
-client@demo.com
 
 ------------------------------------------------------------------------
 
