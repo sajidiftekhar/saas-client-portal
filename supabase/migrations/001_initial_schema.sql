@@ -302,7 +302,16 @@ CREATE POLICY "projects_delete"
 
 CREATE POLICY "project_members_select"
   ON public.project_members FOR SELECT
-  USING (public.project_belongs_to_my_org(project_id));
+  USING (
+    public.project_belongs_to_my_org(project_id)
+    AND (
+      public.get_my_org_role(public.get_my_organization_id()) IN ('owner', 'team_member')
+      OR (
+        public.get_my_org_role(public.get_my_organization_id()) = 'client'
+        AND public.is_project_member(project_id)
+      )
+    )
+  );
 
 CREATE POLICY "project_members_insert"
   ON public.project_members FOR INSERT

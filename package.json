@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "husky",
+    "rls:test:ci": "node ./.github/scripts/run-rls-tests.mjs",
+    "verify:ci": "pnpm run lint && pnpm run rls:test:ci"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
@@ -38,6 +41,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "husky": "^9.1.7",
     "supabase": "^2.78.1",
     "tailwindcss": "^4",
     "typescript": "^5"

@@ -1,4 +1,5 @@
 import { redirect, notFound } from "next/navigation";
+import Link from "next/link";
 import {
   CalendarDays,
   CheckSquare,
@@ -121,12 +122,12 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       <div className="space-y-4">
         {/* Breadcrumb */}
         <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-          <a
+          <Link
             href="/projects"
             className="hover:text-foreground transition-colors"
           >
             Projects
-          </a>
+          </Link>
           <span>/</span>
           <span className="text-foreground font-medium truncate max-w-[280px]">
             {project.name}
