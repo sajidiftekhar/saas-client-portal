@@ -35,21 +35,21 @@ export default async function SettingsPage() {
   return (
     <div className="max-w-2xl space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
-        <p className="text-muted-foreground text-sm">
+        <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
+        <p className="mt-1 text-sm text-muted-foreground">
           Manage your organization and team members.
         </p>
       </div>
 
       <section className="space-y-4">
-        <h2 className="text-lg font-medium">Organization</h2>
+        <h2 className="text-base font-semibold">Organization</h2>
         <OrgSettingsForm organization={orgDetails} />
       </section>
 
       <Separator />
 
       <section className="space-y-4">
-        <h2 className="text-lg font-medium">Team Members</h2>
+        <h2 className="text-base font-semibold">Team Members</h2>
         <MemberList
           members={members ?? []}
           organizationId={org.organization_id}

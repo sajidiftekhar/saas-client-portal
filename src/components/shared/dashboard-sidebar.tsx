@@ -19,7 +19,7 @@ import type { MemberRole } from "@/types";
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/dashboard/projects", label: "Projects", icon: FolderKanban },
+  { href: "/projects", label: "Projects", icon: FolderKanban },
 ];
 
 const settingsItems = [
@@ -39,7 +39,7 @@ export function DashboardSidebar({
     <Sidebar>
       <SidebarHeader className="border-b px-4 py-3">
         <div className="flex flex-col gap-0.5">
-          <span className="text-xs text-muted-foreground uppercase tracking-wider">
+          <span className="text-xs text-sidebar-foreground/50 uppercase tracking-wider">
             Client Portal
           </span>
           <span className="font-semibold text-sm truncate">{organizationName}</span>
@@ -55,7 +55,11 @@ export function DashboardSidebar({
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton
                     render={<Link href={item.href} />}
-                    isActive={pathname === item.href}
+                    isActive={
+                      item.href === "/dashboard"
+                        ? pathname === item.href
+                        : pathname === item.href || pathname.startsWith(item.href + "/")
+                    }
                   >
                     <item.icon className="h-4 w-4" />
                     <span>{item.label}</span>
@@ -89,7 +93,7 @@ export function DashboardSidebar({
       </SidebarContent>
 
       <SidebarFooter className="border-t p-3">
-        <p className="text-xs text-muted-foreground text-center">
+        <p className="text-xs text-sidebar-foreground/50 text-center">
           {role === "owner"
             ? "Owner"
             : role === "team_member"

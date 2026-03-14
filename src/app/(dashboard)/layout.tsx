@@ -29,7 +29,7 @@ export default async function DashboardLayout({
       <DashboardSidebar organizationName={org?.organization_name ?? "My Org"} role={org?.role ?? "owner"} />
       <SidebarInset>
         <DashboardHeader user={user} profile={profile} />
-        <main className="flex-1 p-6">{children}</main>
+        <main className="flex-1 p-8">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );
